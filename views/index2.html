@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #container {
+      display: grid;
+      height: 100vh;
+      grid-template-columns: repeat(12, 1rf);
+      grid-template-rows: 60px auto;
+      grid-template-areas:
+        'header     header      header      header      header      header'
+        'sidebar    main     main        main        main        main';
+    }
+
+    .header {
+      background: rgb(59, 192, 174);
+      width: 100%;
+
+      grid-area: header;
+    }
+
+    .navbar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .headerleft {
+      margin-left: auto;
+      padding: 10px;
+    }
+
+    .brandlogo {
+      margin: 10px;
+      padding: 10px 50px;
+      border: 1px solid black;
+      text-align: center;
+    }
+    .sidebar {
+      background: rgb(187, 115, 57);
+      grid-area: sidebar;
+    }
+    .main {
+      background: darkblue;
+
+      grid-area: main;
+    }
+  </style>
+  <body>
+    <div id="root">
+      <div id="container">
+        <div class="header">
+          <nav class="navbar">
+            <div class="brandlogo">LEAD logo</div>
+            <div class="headerleft">
+              <span><i class="fa fa-bell"></i></span>
+              <span><i class="fa fa-user"></i> Person Name</span>
+            </div>
+          </nav>
+        </div>
+        <div class="sidebar"></div>
+        <div class="main"></div>
+      </div>
+    </div>
+  </body>
+</html>

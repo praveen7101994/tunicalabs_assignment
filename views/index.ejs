@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+ * {
+     margin: 0;
+     padding: 0;
+ }
+      .container {
+        display: grid;
+        height: 900px;
+        border: 1px solid red;
+        grid-gap: 1px;
+        grid-template-columns: repeat(12, 1rf);
+      grid-template-rows: 60px auto;
+        grid-template-areas:
+          'header     header    header        header      header'
+          'sidebar    sidebar   cc              cc          cc';
+      }
+      #header {
+        grid-area: header;
+   
+      }
+
+      #sidebar {
+        display: flex;
+        flex-direction: column;
+        grid-area: sidebar;
+        min-width: 200px;
+
+      }
+
+      .contentarea {
+        grid-area: cc;
+        border: 1px solid black;       
+      }
+
+      .main {
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 10px;;
+      }
+
+      #header {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-around;
+        border: 1px solid black;
+        height: 60px;
+      }
+      .leadlogo {
+        margin: 10px;
+        padding: 10px 50px;
+        border: 1px solid black;
+        text-align: center;
+      }
+      .fa {
+        margin-left: 10px;
+      }
+      .headerleft {
+        margin-left: auto;
+        padding: 10px;
+      }
+
+      .sideitem {
+        font-size: 18px;
+        padding: 5px;
+        text-align: center;
+        border-bottom: 1px solid black;
+        width: match-parent;
+      }
+      .sidebaritem .heading {
+        padding: 5px;
+        font-size: 20px;
+
+        border-bottom: 1px solid black;
+        width: match-parent;
+      }
+      .sidebaritem .active {
+        background-color: #9f98ce;
+        color: white;
+      }
+      .content_heading {
+        border-bottom: 1px solid black;
+      }
+
+      
+      .inlineform {
+        display: flex;
+      }
+      input[type='text'],
+      input[type='password'],
+      input[type='submit'],
+      input[cat='list'],
+      select {
+        padding: 10px 8px;
+        margin: 6px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      /* Table starts*/
+.studenttable{
+    display: flex;
+}
+      table {
+          
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+    background-color: #9f98ce;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+      /* Table end */
+
+      /* pagination  start*/
+     .pagination {
+        display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+     }
+      /* pagination end */
+    </style>
+  </head>
+  <body>
+
+      <div class="container">
+        <div id="header">
+          <div class="leadlogo">LEAD Logo</div>
+          <div class="headerleft">
+            <span><i class="fa fa-bell"></i></span>
+            <span><i class="fa fa-user"></i> Person Name</span>
+          </div>
+        </div>
+        <div id="sidebar">
+          <div class="sidebaritem">
+            <div class="heading">Students</div>
+            <div class="sideitem active">
+              <a>- View Students</a>
+            </div>
+            <div class="sideitem">
+                <a>- Add Students</a>
+              </div>
+          </div>
+        </div>
+        <div class="contentarea">
+        <div class="main">
+            <h3 class="content_heading">Add Student</h3>
+            <div class="inlineform">
+              <form action="">
+                <input type="text" name="name" id="name" placeholder="Name" />
+                <input type="text" name="age" id="age" placeholder="Age" />
+                <input
+                  placeholder="School"
+                  list="schools"
+                  name="browser"
+                  id="school"
+                  cat="list"
+                />
+                <datalist id="schools">
+                  <option value="OPC"> </option>
+                  <option value="DPC"> </option>
+                </datalist>
+
+                <input
+                  placeholder="Class"
+                  list="Classes"
+                  name="class"
+                  id="class"
+                  cat="list"
+                />
+                <datalist id="Classes">
+                  <option value="1st"> </option>
+                  <option value="2nd"> </option>
+                </datalist>
+
+                <input
+                  placeholder="Division"
+                  list="divisions"
+                  name="division"
+                  id="division"
+                  cat="list"
+                />
+                <datalist id="divisions">
+                  <option value="1st"> </option>
+                  <option value="2nd"> </option>
+                </datalist>
+
+                <input type="submit" value="Search" />
+              </form>
+            </div>
+            <div class="studenttable">
+                <table>
+                    <tr>
+                      <th>ID^v</th>
+                      <th>Name</th>
+                      <th>School</th>
+                      <th>Class^v</th>
+                      <th>Division</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                    <tr>
+                      <td>Alfreds Futterkiste</td>
+                      <td>Maria Anders</td>
+                      <td>Germany</td>
+                      <td>Maria Anders</td>
+                      <td>Germany</td>
+                      <td>Germany</td>
+                      <td> <a href="">edit </a><span>  </span><a href=""> delete</a> </td>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>Germany</td>
+                        <td> <a href="">edit </a><span>  </span><a href=""> delete</a> </td>
+                      </tr>
+                      <tbody id='tabledata'></tbody>
+                    
+                  </table>
+            </div>
+            <div class="pagination">
+                <div class="pagination_items">
+                    <a href=""><</a>
+                </div>
+                <div class="pagination_items">
+                    <a href="">1</a>
+                </div>
+                <div class="pagination_items">
+                    <a href="">2</a>
+                </div>
+                <div class="pagination_items">
+                    <a href="">3</a>
+                </div>
+                <div class="pagination_items">
+                    <a href="">4</a>
+                </div>
+                <div class="pagination_items">
+                    <a href="">5</a>
+                </div>
+                <a href="">></a>
+            </div>
+            <button>
+                
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../views/static/script.js"></script>
+    <script>
+const data = fetch('http://localhost:5000/api/student').then(res => res.json()).then(data => data);
+
+console.log('my',data)
+
+
+  // console.log(jsondata)
+
+// const tablebody = document.getElementById('tabledata');
+
+// let datahtml = '';
+
+// for(let person of persondata) {
+//   let id = 1;
+//   datahtml += `<tr>
+//     <td>${person.name}</td>
+//     <td>${person.school}</td>
+//     <td>${person.class}</td>
+//     <td>${person.division}</td>
+//     <td>${person.status}</td>
+//     `
+//     id++;
+// }
+
+    </script>
+  </body>
+</html>
